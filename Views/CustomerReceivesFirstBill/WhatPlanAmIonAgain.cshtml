@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "What Plan Am I on Again?";
+}
+
+
+<div class="sub-page  AlignH ">
+    <style>
+        /*.sub-page figcaption {
+            height: 640px;
+        }*/
+        .pink .page-content h2 {
+            color: #ED3B95;
+            margin: 10px 0;
+        }
+        .pink .page-content h2.p10{
+            padding-left:10px;
+        }
+        .pink .sub-page .page-content .content_scrollable_wrap {
+            padding: 10px 100px 0;
+        }
+        .pink .sub-page figcaption {
+            height: 600px;
+        }
+    </style>
+    <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+    <div id="scrollable" class="scrollable" >
+        <div class="items">
+            <div class="page-content">
+                <div class="scrollable_wrap">
+                    <div class="coll-left">
+                        <figcaption>
+                            <p><strong>Uh-oh, Kato has forgotten what plan he is on…</strong></p>
+                            <p><br />Kato can refresh his memory by logging in to My Account or into his Telstra 24x7 App</p>
+                            <a href="#" data-page="/CustomerReceivesFirstBill/WhatPlanAmIonAgain_MyAccount" class="page-menuBtn btn"  style="padding: 20px 40px;">My Account</a>
+                            <a href="#" data-page="/CustomerReceivesFirstBill/WhatPlanAmIonAgain_TelstraApps" class="page-menuBtn btn" >Telstra 24x7 App for iPhone,<br />Android, Facebook or iPad
+                            </a>
+                        </figcaption>
+                    </div><div class="coll-right">
+                              <figure>
+                                  <img alt="" src="/Content/img/3.4 What Plan/img_title_pic_s.jpg">
+                              </figure>
+                          </div>
+                      
+                    
+                </div>
+         
+            </div> @*end item here*@
+    
+        </div>
+    </div>
+</div>
+
+<div id="page-footer">
+    <a href="#" data-page="/CustomerReceivesFirstBill">Customer Receives First Bill</a>
+    <span class="current">@ViewBag.Title</span>
+</div>
+
+

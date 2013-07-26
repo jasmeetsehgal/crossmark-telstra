@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "What's this Charge?";
+}
+
+<div class="sub-page  AlignH ">
+   <style>
+        /*.sub-page figcaption {
+            height: 640px;
+        }*/
+        .pink .page-content h2 {
+            color: #ED3B95;
+            margin: 10px 0;
+        }
+        .pink .page-content h2.p10{
+            padding-left:10px;
+        }
+        .pink .sub-page .page-content .content_scrollable_wrap {
+            padding: 10px 100px 0;
+        }
+        .pink .sub-page figcaption {
+            height: 600px;
+        }
+    </style>
+    <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+    <div id="scrollable" class="scrollable" >
+        <div class="items">
+      
+            <div class="page-content">
+                <div class="scrollable_wrap">
+                    
+                    <div class="coll-left">
+                        
+                        <figcaption>
+                            <p>Thomas understands his Telstra bill,  but there is one charge he's unsure of</p>
+                            <p><br />Thomas can get the answer to his query in his own time by using the self serve options online, without the need to wait in a queue in a store or over the phone</p>
+                            <a href="#"  data-page="/CustomerReceivesFirstBill/WhatThisCharge_MyAccount" class="page-menuBtn btn"><br />My Account<br /><br /></a>
+                            <a href="#" data-page="/CustomerReceivesFirstBill/WhatThisCharge_TalkTotelstra" class="page-menuBtn btn">Talk to Telstra 24x7via Live Chat,<br />Facebook 24x7, Twitter &#64;Telstra, <br />Crowd Support</a>
+                        </figcaption>
+                    </div>
+                    <div class="coll-right">
+                          <figure>
+                                  <img alt="" src="/Content/img/3.2 What's this charge/img_title_pic_s.jpg">
+                          </figure>
+                    </div>
+                      
+                </div>
+         
+            </div> @*end item here*@
+     
+          @*  <div class="page-content">
+                <div class="bottom-findmore">
+                    <ul><li><a href="#" data-page="/NewTelstraCustomer/onBoard_MyAccountVirtualTour" data-pageIndex="0">My Account Virtual Tour</a></li></ul>
+                </div>
+                <div class="scrollable_wrap">
+                   
+                    <div class="coll-left">
+                        <h2>My Account</h2>
+                        <div class="img_title"></div>
+                        <figcaption>
+                            <p>Thomas may be on a summary bill.<br/><br/>
+                                A great option would be for him to log in to My Account and view his itemised usage.<br/><br/>
+                                This is simple and easy. He can click on the “Billing and Payments” tab on the overview page in My Account, choose the bill he is looking at and download “full itemised usage - CSV”.<br/><br/>
+                                Hopefully Thomas is now clear about this charge. If not he can get instant answers through Live Chat or Telstra 24x7 social media forums including Crowd Support.</p>
+                        </figcaption>
+                    </div><div class="coll-right">
+                              <figure>
+                              <div class="imgscrollable" id="smallScrolable-1">
+                                 <div id="small-nav-1"></div>
+                                    <div class="items">
+                                      <img src="/Content/img/3.2 What's this charge/3.2.1-My-Account-s.jpg" />
+                                      <img src="/Content/img/3.2 What's this charge/3.2.1-My-Account_image2-s.jpg" />
+                                    </div>
+                              </div>
+                              </figure>
+                          </div>
+                
+              
+                </div>
+            </div> 
+
+      
+            <div class="page-content">
+                <div class="bottom-findmore">
+  <ul><li><a href="#" data-page="/NewTelstraCustomer/support" data-pageIndex="0">Support</a></li></ul>
+</div>
+
+                <div class="scrollable_wrap">
+                   
+                    <div class="coll-left">
+                        <h2>Telstra 24x7 Support</h2>
+                        <div class="img_title"></div>
+                        <figcaption>
+                            <p>
+                                As a Telstra customer, Thomas has access to a range of social media communities and forums that can help address his query any time of the day or night.<br/><br/>
+                                Thomas can chat to a consultant via Live Chat, where he can get his query resolved instantly.<br/><br/>
+                                Thomas can post his question on Crowd Support to get answers from our online user community – how cool.<br/><br/>
+                                Thomas can tweet to &#64;telstra<br/><br/>
+                                Thomas can post on the Telstra 24x7 Facebook page.<br/>
+
+                            </p>
+                        </figcaption>
+                    </div><div class="coll-right">
+                              <figure>
+                              <div class="imgscrollable" id="smallScrolable-2">
+                                 <div id="small-nav-2"></div>
+                                     <div class="items">
+                                         <img src="/Content/img/3.2 What's this charge/3.2.2 livechat.png" height="560"/>
+                                        <img src="/Content/img/3.2 What's this charge/3.2.2 facebook 24x7.png" height="560"/>
+                                        <img src="/Content/img/3.2 What's this charge/3.2.2 twitter.png" height="560"/>
+                                        <img src="/Content/img/3.2 What's this charge/3.2.2 crowdsupport.png" height="560"/>
+                                 </div>
+                              </div>
+                              </figure>
+                          </div>
+                
+            
+                </div>
+            </div> *@
+        </div>
+    </div>
+</div>
+
+<div id="page-footer">
+    <a href="#" data-page="/CustomerReceivesFirstBill">Customer Receives First Bill</a>
+    <span class="current">@ViewBag.Title</span>
+</div>
+

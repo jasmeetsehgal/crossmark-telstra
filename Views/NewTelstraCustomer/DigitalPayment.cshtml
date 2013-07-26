@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Digital Payment";
+}
+
+<div class="sub-page  AlignH ">
+      <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+   
+    <div id="scrollable" class="scrollable" >
+        <div class="items">          
+
+             <div class="page-content">
+                 <div class="top-slider"><p>Switch customers to a Digital bill on every call</p></div>
+                  <div class="bottom-findmore">
+                    <ul>
+                        <li><a href="#" data-page="/NewTelstraCustomer/onBoard_MyAccountVirtualTour" data-pageIndex="0">My Account Virtual Tour</a></li>
+                        <li><a href="#" data-page="/NewTelstraCustomer/onBoard_BillingandPayments" data-pageIndex="2">Request Email Bill</a></li>
+                        <li><a href="#" data-page="/CustomerReceivesFirstBill/CustomerReceivesBill" data-pageIndex="0">Customer Receives Bill</a></li>
+                    </ul>
+                </div>
+                  <div class="content_scrollable_wrap">                  
+                   
+                        <figcaption>
+                            <div >
+                                <p>Digital Payments are about taking the hassle out of remembering to pay a bill. </p><br />
+<p>Choosing to pay bills online is a smart way for our customers to stay in control and take care of their Telstra bills, quickly and efficiently. 
+Digital payments are <strong>FAST, SECURE & EASY</strong>.</p>
+                                <br />
+                                <p>Customers have various options to pay their bills online. Depending on the option they choose, they can make a one-off payment or set up a direct debit on their account</p>
+                                <br />
+                                <a href="#" data-page="/NewTelstraCustomer/DigitalPayment_ThroughMyAccount" class="page-menuBtn btn" style="margin-left: 210px;">Payment through<br />My Account </a>
+                                 <a href="#" data-page="/NewTelstraCustomer/DigitalPayment_ThroughUnauthenticated" class="page-menuBtn btn">Account Service<br />(unauthenticated) payment</a>
+                                <a href="#" data-page="/NewTelstraCustomer/DigitalPayment_IVRBPAY" class="page-menuBtn btn" style="line-height:58px;">IVR/BPay</a>
+                            </div>
+                        </figcaption>
+                    
+                   
+                </div>
+            
+            </div> @*end item here*@
+
+              
+      </div>
+    </div>
+</div>
+<div id="page-footer">
+     <a href="#" data-page="/NewTelstraCustomer">New Telstra Customer</a>
+    <a href="#" data-page="/NewTelstraCustomer/DigitalWelcome" data-pageIndex="3">You Are Signed Up</a>
+      <span class="current">@ViewBag.Title</span>
+</div>

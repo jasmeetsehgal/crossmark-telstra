@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Customer Receives Bill";
+}
+
+<div class="sub-page  AlignH ">
+    <style>
+         figcaption {
+            height: 640px;
+        }
+        .page-content h2 {
+            color: #ED3B95;
+            margin: 10px 0;
+        }
+         .page-content h2.p10{
+            padding-left:10px;
+        }
+        .page-content .content_scrollable_wrap {
+            padding: 10px 100px 0;
+        }
+    </style>
+    <a class="scrollable-browse scrollable-next"></a><a class="scrollable-browse scrollable-prev">
+                                                     </a>
+    <div class="title">
+        <h1>@ViewBag.Title</h1>
+    </div>
+    <div id="scrollable" class="scrollable">
+        <div class="items">
+           
+            <div class="page-content">
+                <div class="top-slider">
+                    <p>
+                        Have the digital bill conversation on all calls</p>
+                </div>
+                <div class="content_scrollable_wrap">
+                    <h2>Email Bill</h2>
+                    <div>
+                        <p>
+                            Customers request Email Bill through Telstra.com by clicking on the “Request email
+                            bill” via the Account Services tab icon
+                        </p>
+                        <br/>
+                        <br/>
+                        <img src="../../Content/img/callout_images.png" alt="Callout" style="padding-left:200px;"/>
+                    </div>
+                </div>
+            </div>
+            @*end item here*@
+            <div class="page-content">
+                <div class="img_title">
+                </div>
+                <div class="scrollable_wrap">
+                    <div class="coll-left">
+                        <h2>Email Bill</h2>
+                        <figcaption>
+                            <p>
+                                Signing up for Email Bill is simple and easy.<br/><br/>
+                                Customers sign up via <strong>telstra.com.au/emailbill</strong> or through the Account Services tab <strong>telstra.com.au/account-services</strong> by clicking on the “Request email bill” icon<br/><br/>
+                                Customers are asked for their personal details (full name, date of birth) to register for Email Bill<br/><br/>
+                                They must be the account holder or authorised to make the request on the account.<br/><br/>
+                                Depending on bill delivery date, customers may still receive one more paper bill.
+
+                            </p>
+                        </figcaption>
+                    </div>
+                    <div class="coll-right">
+                        <figure>
+                            <img src="/Content/img/3.1 Customer receives bill/3.1.1.1-Email-Bill-virtual-tour_s.jpg"/>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            @*end item here*@
+            <div class="page-content">
+                <div class="scrollable_wrap">
+                    <div class="coll-left">
+                        <h2>Email Bill</h2>
+                        <figcaption>
+                            <div>
+                                <p>
+                                    Once signed up, customers will receive their Telstra bill in PDF format to the email address of their choice each month.<br/><br/>
+                                    The format is the same as the paper bill but in electronic form.<br/><br/>
+                                    Customers can choose between a summary bill or a detailed bill.<br/><br/>
+                                    The email accompanying the email bill provides customers with a link through which they can proceed to make bill payments immediately or at their own convenience.
+
+                                </p>
+                                <p><br/>Coming soon… Ability to “make payment now” from within Email Bill</p></div>
+                        </figcaption>
+                    </div>
+                    <div class="coll-right">
+                        <figure>
+                            @*<img src="/Content/img/3.1 Customer receives bill/3.1.1.1-virtual-tour_image2_s.jpg"/>*@
+                            <div class="imgscrollable" id="smallScrolable-1">
+                                 <div id="small-nav-1"></div>
+                                    <div class="items">
+                                        <img src="/Content/img/3.1%20Customer%20receives%20bill/3.1.1.1-virtual-tour_image1_n.jpg" />
+                                        <img src="/Content/img/3.1%20Customer%20receives%20bill/3.1.1.1-virtual-tour_image2_n.jpg" />
+                                  </div></div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            @*end item here*@
+        
+        </div>
+    </div>
+</div>
+    <div id="page-footer">
+        <a href="#" data-page="/CustomerReceivesFirstBill">Customer Receives First Bill</a>
+           <a href="#" data-page="/CustomerReceivesFirstBill/CustomerReceivesBill">Customer Receives Bill</a>
+        <span class="current">Email Bill</span>
+    </div>

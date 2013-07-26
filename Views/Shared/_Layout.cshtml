@@ -1,0 +1,604 @@
+﻿<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<html manifest="telstra.manifest">-->
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*Mobile viewport optimized: j.mp/bplateviewport *@
+    <meta name="viewport" content="width=1920,initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link href="/Content/css/main.css" rel="stylesheet" type="text/css" />
+    <script>
+        var parentPage = "@ViewBag.parentPage";
+        var currentPage = "@ViewBag.currentPage";
+
+    </script>
+    @* This fixes html5 unknown tag problems in older versions of IE (pre IE9) *@
+    <!--[if lt IE 9]><script type="text/javascript" src="/Content/js/html5.js"></script><![endif]-->
+</head>
+<body>
+    <div class="wrap">
+        <div id="container" class="about">
+            <div id="content-bkg">
+            </div>
+            <header class="cf">
+                <span href="#" class="back-arrow"></span>
+                <h2>Potential customers</h2>
+                <span class="icon icon-bundlemobilemodem"></span>
+                <span class="icon icon-cart"></span>
+                <span class="icon icon-mail"></span>
+                <span class="icon icon-billing"></span>
+          
+            </header>
+            <div id="content" class="content cf">
+                @RenderBody()
+            </div>
+            <footer class="cf">
+              
+              
+            </footer>
+            <div id="common-navi" class="navi">
+            </div>
+            <div id="findoutmore">
+                <div class="top"></div>
+                <div class="middle"></div>
+                 <div class="bottom"></div>
+            </div>
+            <div id="info_slider">
+                
+                <p>
+                    International Roaming data packs are a great option!</p>
+            </div>
+            <div class='anim-smile' ></div>
+            @*<a id="telstraTV" href="#" onclick=" $('#video-Overlay').overlay().load();"></a> *@
+        </div>
+    </div>
+    <div id="video-Overlay">
+        <a href="#" class="close"></a>
+        <h1></h1>
+        <div>
+          
+        </div>
+    </div>
+    
+    <audio id="clickSound" style="display: none;">
+          <source src="/Content/sound/click.mp3" type="audio/mpeg" />
+    </audio> 
+    <audio id="swipeSound" style="display: none;" >
+          <source src="/Content/sound/Swipe.mp3" type="audio/mpeg" />
+    </audio> 
+     <audio id="sliderSound" style="display: none;" >
+          <source src="/Content/sound/slider.mp3" type="audio/mpeg" />
+    </audio> 
+
+    @* JavaScript at the bottom for fast page loading *@
+    <script src="/Content/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/Content/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+    <script src="/Content/js/jquery.tools.min.js" type="text/javascript"></script>
+    <script src="/Content/js/jquery.tools.scrollable.js" type="text/javascript"></script>
+    <script src="/Content/js/scrollable.navigator.js" type="text/javascript"></script>
+    @*    <script src="/Content/js/jquery.animate-enhanced.min.js" type="text/javascript"></script>*@
+    <script type="text/javascript">
+
+        var fadeoutTime = 500;
+        var fadeinTime = 500;
+        var level = 0;
+        var FOOTER = '<a data-page="animation" href="#">Telstra</a><a  data-page="home-menu" href="#">Home</a>';
+
+        var historyPage = [];
+        var currentPage = [];
+
+        var jumpTo = 0;
+        function vidTitle(flName) {
+            switch (flName) {
+                case "/Content/videos/Account Services Role Play.mp4":
+                    return "Account Services Role Play";
+                    break;
+                case "/Content/videos/Auto Payment Registration.mp4":
+                    return "Auto Payment Registration";
+                    break;
+                case "/Content/videos/My Account Role Play.mp4":
+                    return "My Account Role Play";
+                    break;
+                case "/Content/videos/Online Bill vs Email Bill.mp4":
+                    return "Online Bill vs Email Bill";
+                    break;
+                case "/Content/videos/Pre-Paid Recharge Online - Mobile Broadband.mp4":
+                    return "Pre-Paid Recharge Online – Mobile Broadband";
+                    break;
+                case "/Content/videos/Pre-Paid Recharge Online.mp4":
+                    return "Pre-Paid Recharge Online";
+                    break;
+                case "/Content/videos/TDTV Moving Home.mp4":
+                    return "TDTV Moving Home";
+                    break;
+                case "/Content/videos/TDTV Results.mp4":
+                    return "TDTV Results";
+                    break;
+                case "/Content/videos/Telstra 24x7 Apps.mp4":
+                    return "Telstra 24x7 Apps";
+                    break;
+                default:
+            }
+        };
+        function stopVidPlay() {
+            if ($("#videoplayer").length > 0) {
+            document.getElementById("videoplayer").pause();
+            }
+           window.parent.mainSoundPause(false);
+        }
+        function setThemeColor(color) {
+            $("#container").attr('class', color);
+        }
+
+        function scrollTo(screenNo) {          
+            $(".scrollable").scrollable().seekTo(screenNo, 100);
+            return false;
+        }
+
+
+        function showPageMenu() {
+            $("#page-menu").animate({
+                left: '0px'
+            }, 1500);
+
+        }
+        function changeThemeAsPage(loadPage) {
+            if (loadPage.toLowerCase().indexOf(('NewTelstraCustomer').toLowerCase()) > 0) {
+                setThemeColor('orange');
+                $('header h2').html("New Telstra Customer");
+            } else if (loadPage.toLowerCase().indexOf(('CustomerReceivesFirstBill').toLowerCase()) > 0) {
+                setThemeColor('pink');
+                $('header h2').html("Customer Receives First Bill");
+            } else if (loadPage.toLowerCase().indexOf(('DigitalCustomerLifeMoments').toLowerCase()) > 0) {
+                setThemeColor('purple');
+                $('header h2').html("Digital Customer Life Moments");
+            } else if (loadPage.toLowerCase().indexOf(('PotentialTelstraCustomer').toLowerCase()) > 0) {
+                setThemeColor('green');
+                $('header h2').html("Potential Telstra Customer");
+            }
+        }
+        function findoutmoreHandler(e) {
+            document.getElementById("clickSound").play();
+            if ($(this).attr('data-type') == "video") {               
+                // $("#video-Overlay source").attr('src', $(this).attr('data-path'));
+                $("#video-Overlay h1").html(vidTitle($(this).attr('data-path')));
+                $("#video-Overlay > div").html("<video id='videoplayer' width='100%' autoplay controls='controls'><source src='" + $(this).attr('data-path') + "' type='video/mp4' /></video>");
+               $('#video-Overlay').overlay().load();
+               e.preventDefault();
+               window.parent.mainSoundPause(true);
+              return;
+            }
+            
+            var loadPage = $(this).attr('data-page');
+            jumpTo = $(this).attr('data-pageIndex');
+            //window.location.href = loadPage + "?jumpto=" + jumpTo;
+            changeThemeAsPage(loadPage);
+            //console.log(currentPage, $(".scrollable").data('scrollable').getIndex());
+            historyPage = [{ 'page': currentPage.page, jumpTo: $(".scrollable").data('scrollable').getIndex() }];
+            console.log("at finout more ",historyPage);
+            changePage($(this));           
+            e.preventDefault();
+        }
+
+        function updateFooter(title, path) {
+
+            /* var ele = $("<span class='current'>" + $('title').text() + "</span>");
+            ele.data({ "page": location.pathname, 'menu': level });
+            $("footer").append(FOOTER);
+            $("footer").append(ele);*/
+
+            $('footer').html(FOOTER + $("#content").find("#page-footer").html());
+        }
+
+        $(function () {
+            $('header h2').html($('title').text());
+            $("#video-Overlay").overlay({
+                top: 'center',
+                fixed: false,
+                closeOnClick: true,
+                load: false,
+                mask: {
+                    color: '#000',
+                    loadSpeed: 200,
+                    opacity: 0.5
+                },
+                onClose: function () {
+                    stopVidPlay();
+                    $("#video-Overlay > div").empty();
+                }
+            });
+        });
+
+        window.onload = function () {
+            $(".wrap").fadeIn(fadeinTime);
+            pageLoaded();
+            /* end vertically/horizontally center menu */
+        };
+        
+        function pageLoaded() {
+
+            if (!window.parent.iframePageLoaded) {
+                window.parent.iframeLoaded();
+            }
+
+            // set flag to prevent outer scroller scrolling on swipe of inner scroller
+            var innerScrolling = false;
+            updateFooter();
+            showPageMenu();
+            /*show bg condition*/
+            if ($("footer a").length > 2) {
+                // $("#bkg").fadeOut(fadeoutTime);               
+                    $("#content-bkg").animate({
+                            opacity: 0.60
+                        }, 1000, function () {
+                            //$("#content-bkg").addClass('llight').css("opacity", 1);
+                        });              
+                $("#common-navi").empty().show();
+            } else {
+               // $("#content-bkg").removeClass('llight').css("opacity", 0.6);
+                $("#content-bkg").animate({
+                        opacity: 1
+                    }, 1000, function () {
+                    });
+                // $("#bkg").fadeIn(fadeinTime);
+                $("#common-navi").hide().end().empty();
+            }
+            /* ---  */
+            
+            /* restart timeout */
+            window.parent.resetAnimTimeOut();
+            $("#container,#container a").click(function () {
+                window.parent.resetAnimTimeOut();
+            });
+            /* -------- */
+            $("#container > .content").fadeIn(fadeinTime);
+
+            setTimeout(setTopLeft, (fadeinTime / 5));
+            //setTopLeft();
+          
+            $("#page-menu li a,a.page-menuBtn").unbind('click').click(function (e) {
+                historyPage = [];
+                //if($(this).parent().parent().attr("id") == "page-menu") {
+                    document.getElementById("clickSound").play();
+                //}
+                changePage($(this));
+                level++;
+                e.preventDefault();
+            });
+
+            $(".show-pop").click(function (e) {
+                var tar = $(this).attr('rel');
+                $("#" + tar).overlay().load();
+            });
+
+            $("footer a").unbind('click').click(function (e) {
+                historyPage = [];
+                stopVidPlay();
+                document.getElementById("clickSound").play();
+                if ($(this).data('page') === "animation") {
+                    window.parent.showAnim();
+                } else if ($(this).data('page') === 'home-menu') {
+                    window.parent.showHome();
+                } else {
+                    $(this).attr('data-pageIndex', 0);
+                    changePage($(this));
+                }
+            });
+
+            $("header .back-arrow").unbind('click').click(function (e) {
+                // console.log("at back-arrow ", historyPage);
+                document.getElementById("clickSound").play();
+                if (historyPage.length > 0) {
+                    $(this).attr('data-pageIndex', historyPage[0].jumpTo);
+                    $(this).attr('data-page', historyPage[0].page);
+                    changeThemeAsPage(historyPage[0].page);
+                    changePage($(this));
+                    historyPage = [];
+                    return;
+                }
+                var tar = $("footer a:last");
+                if ($(tar).data('page') === 'home-menu') {
+                    window.parent.showHome();
+                    stopVidPlay();
+                } else {                    
+                    changePage(tar);
+                }
+                
+            });
+
+            $("a.scrollable-next").unbind('click').click(function (e) {
+                if ($(".scrollable").data('scrollable').getIndex() == ($(".scrollable").data('scrollable').getItems().size() - 1)) {
+                    document.getElementById("clickSound").play();
+                    changePage($("footer a:last"));
+                }
+            });
+
+
+            $(".scrollable").scrollable({
+                touch: false,
+                next: "a.scrollable-next",
+                prev: "a.scrollable-prev",
+                onBeforeSeek: function () {
+                
+                },
+                onSeek: function (e) {
+                    //historyPage = [];
+                    var ele = $(".page-content").eq(this.getIndex());
+                    var navi_visible = ele.data("navmenu");
+                    if (navi_visible === "hidden") {
+                        // $("#content .sub-page").addClass("no-tabs");
+                    } else {
+                        //$("#content .sub-page").removeClass("no-tabs");
+                    }
+                    var slider_data = ele.find(".top-slider").html();
+                    var findmore = ele.find(".bottom-findmore").html();
+                    var TV = ele.find(".bottomleft-tv");
+
+                    if (slider_data != null) {
+                        $(".anim-smile").css('display','block');
+                        $("#info_slider").delay(1000).html(slider_data).slideDown(500, function () {
+                            document.getElementById("sliderSound").currentTime = 0;
+                            document.getElementById("sliderSound").play();
+                        });
+                        
+                    } else {
+                        $("#info_slider").slideUp(500).html("");
+                         $(".anim-smile").css('display','none');
+                    }
+
+                    if (findmore != null) {
+
+                        $("#findoutmore .middle").html("<h2>FIND OUT MORE</h2>" + findmore);
+                        $("#findoutmore").slideDown(500, function () {
+                           // document.getElementById("sliderSound").currentTime = 0;
+                           // document.getElementById("sliderSound").play();
+                        });
+
+                    } else {
+                        $("#findoutmore").slideUp(500);
+                        $("#findoutmore .middle").html("");
+                    }
+
+                    //if (TV.length > 0) {
+                    //    $("#video-Overlay source").attr('src', TV);
+                    //    $("#telstraTV").slideDown(500);
+                    //} else {
+                    //    $("#telstraTV").slideUp(500);
+                    //    $("#video-Overlay source").attr('src', '');
+                    //}
+
+                    $("#findoutmore ul a").click(findoutmoreHandler);
+
+                }
+            }).navigator();
+
+            $(".scrollable").swipe({
+                swipeLeft: function (e, dir) {
+                    //console.log($(this).data('scrollable').getIndex(), ($(this).data('scrollable').getItems().size() - 1));
+                    if ($(this).data('scrollable').getIndex() == ($(this).data('scrollable').getItems().size() - 1)) {
+                        changePage($("footer a:last"));
+                    } else {
+                        $(this).data('scrollable').next();
+                    }
+                    document.getElementById("swipeSound").play();
+                    window.parent.resetAnimTimeOut();
+                   // historyPage = [];
+                },
+                swipeRight: function (e, dir) {
+                   // historyPage = [];
+                    $(this).data('scrollable').prev();
+                    document.getElementById("swipeSound").play();
+                    window.parent.resetAnimTimeOut();
+                },
+                triggerOnTouchEnd: false
+            });
+
+            if ($(".imgscrollable").length > 0) {
+                $(".imgscrollable .items img").wrap("<div class='small-scroll-img' />");                 
+                $(".imgscrollable").each(function(i, e) {
+                    var navi_ = "#small-nav-" + parseInt(i + 1);
+                    $(this).scrollable({
+                        touch: false
+                    }).navigator({ navi: navi_ });
+                });
+                if ($("#small-nav").length > 0) {
+                    $(".imgscrollable").scrollable({
+                        touch: false
+                    }).navigator({ navi: "#small-nav" });
+                }
+            }
+
+            $(".imgscrollable").swipe({
+                swipeStatus: function (e, phase, direction) {
+                   // console.log('inner: ' + phase + ", " + direction);
+                    if (phase == 'move') {
+                        //console.log('outer disable');
+                        $('.scrollable').swipe('disable');
+                    }
+                    if (phase =='end') {
+                        //console.log('outer enable');
+                        $('.scrollable').swipe('enable');                        
+                    }
+                   
+                },
+                swipeLeft: function (e, dir) {
+                    $(this).data('scrollable').next();
+                    document.getElementById("swipeSound").play();
+                    window.parent.resetAnimTimeOut();
+                },
+                swipeRight: function (e, dir) {
+                    $(this).data('scrollable').prev();
+                    document.getElementById("swipeSound").play();
+                    window.parent.resetAnimTimeOut();
+                },
+                triggerOnTouchEnd: false
+            });
+
+           
+            $(".about a.scrollable-browse").unbind('click').click(function (e) {
+                e.preventDefault();
+                var ind = $(".video-thumbs a.active").index();
+                if ($(this).hasClass("scrollable-next")) {
+                    if (ind == 7) {
+                        ind = 0;
+                    }
+                    $(".video-thumbs a").eq(ind).click();
+                } else {
+                    $(".video-thumbs a").eq(ind - 2).click();
+                }
+            });
+            
+            $('.scrollable-browse').off('click.sound').on('click.sound', function () {
+                document.getElementById("clickSound").play();
+               // historyPage = [];
+            });
+            $(".video-thumbs a").unbind('click').click(function (e) {
+                e.preventDefault();
+                document.getElementById("clickSound").play();
+                $(".video-thumbs a").removeClass("active");
+                $(".scrollable_wrap h1").html($(this).data("title"));
+                $(this).addClass("active");
+                $('.video-container').html("<video id='videoplayer' class='about-videos' autoplay controls='controls'><source src='" + $(this).attr('href') + "' type='video/mp4' /></video>");
+                window.parent.mainSoundPause(true);
+            });
+            
+            /*custom nav/tab control*/
+            $(".scrollable ul.ul-tabs a").unbind('click').click(function (e) {
+                var scrollTo = parseInt($(this).data("scrollto"));
+                $(".scrollable").scrollable().seekTo(scrollTo, 00);
+            });
+
+
+            /*set navi in the center*/
+            var lft = (1920 - $("#common-navi").width()) / 2;
+            $("#common-navi").css('left', lft);
+            /* --------- */
+            $(".overlay").overlay({
+                top: 'center',
+                fixed: false,
+                onLoad: function () {
+                    var wrap = this.getOverlay();
+                    var content_wrap = wrap.prevAll('.content_pop');
+                    var topOffset = $(content_wrap).offset().top;
+                    //wrap.css('top', topOffset + 75);
+                    $(wrap).animate({
+                            top: (topOffset + 75),
+                            opacity: 1
+                        }, 100, function () {
+                        });
+                    $(content_wrap).append("<div id='expose'></div>");
+                    $('#expose').animate({
+                            opacity: .5
+                        }, 300, function () {
+                        });
+                },
+                onClose: function () {
+                    $('#expose').remove();
+                },
+                closeOnClick: true,
+                load: false
+            });
+            
+        }
+
+        function setTopLeft(parameters) {
+            /* vertically/horizontally center menu */
+            $('.AlignH').each(function () {
+                var parentHt = $(this).parent().height();
+                var mar_top = (parentHt - $(this).height()) / 2;
+
+                $(this).css('marginTop', mar_top);
+            });
+
+            $('.AlignV').each(function () {
+                var parentWd = $(this).parent().width();
+                var mar_left = (parentWd - $(this).width()) / 2;
+                $(this).css('marginLeft', mar_left);
+            });
+
+            /* jump to as per query string 
+            jumpTo = getParameterByName("jumpto");
+            if (jumpTo == "undefined") {
+                jumpTo = $(".scrollable").data('scrollable').getItems().size()-1;
+            }*/
+            console.log(jumpTo," jumpTo");
+            /* call on seek on first item */
+            if ($(".scrollable").length > 0) {
+                $(".scrollable").scrollable().seekTo(jumpTo, 0);
+                jumpTo = 0;
+            }
+            /* ---------- */
+        }
+
+        function changePage(tar) {
+           
+            $("#info_slider").slideUp(500).html("");
+            $(".anim-smile").css('display', 'none');
+            $("#findoutmore").slideUp(500);
+            $("#findoutmore .middle").html("");
+
+            
+
+            var pageData = "";
+            var animComplete = false;
+            var loadPage = $(tar).attr('data-page');
+
+
+            jumpTo = $(tar).attr('data-pageIndex');
+
+            currentPage = {'page':loadPage,'jumpTo':jumpTo };
+            if(jumpTo == undefined) {
+                jumpTo = 0;
+            }
+            /* window.location = loadPage;
+            return;*/
+            //
+
+            var regex = /<title>(.*?)<\/title>/ig;
+            $.get(loadPage, function (data) {
+                pageData = $(data).find("#content").html();
+                /*update footer from loaded page*/
+                // $('footer').html(FOOTER + $(data).find("#page-footer").html());
+                /* ---- */
+               
+                if (animComplete) {
+                    $("#container > .content").html(pageData);
+                    pageLoaded();
+                }
+            });
+
+
+
+            $("#container > .content").fadeOut(fadeoutTime, function () {
+                if (pageData === "") {
+                    animComplete = true;
+                }
+                else {
+                    $("#container > .content").html(pageData);
+                    pageLoaded();
+                }
+            });
+        }
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.search);
+            if (results == null)
+                return "";
+            else
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+    </script>
+</body>
+</html>

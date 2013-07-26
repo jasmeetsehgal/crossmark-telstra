@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "THERE'S THIS ONE THING I'M NOT SURE OF";
+}
+
+
+<div class="sub-page  AlignH ">
+     <style>
+        /*.sub-page figcaption {
+            height: 640px;
+        }*/
+        .pink .page-content h2 {
+            color: #ED3B95;
+            margin: 10px 0;
+        }
+        .pink .page-content h2.p10{
+            padding-left:10px;
+        }
+        .pink .sub-page .page-content .content_scrollable_wrap {
+            padding: 10px 100px 0;
+        }
+        .pink .sub-page figcaption {
+            height: 600px;
+        }
+    </style>
+    <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+    <div id="scrollable" class="scrollable" >
+        <div class="items">
+      
+            <div class="page-content">
+                <div class="scrollable_wrap">
+                    
+                   
+                    <div class="coll-left">
+                       
+                        <figcaption>
+                            <p><strong>Jess can't figure this one thing out…</strong></p>
+                            <p><br />Jess can get help with her query in her own time by using the self serve options online - without the need to wait in a queue in a store or over the phone</p>
+                            <a href="#" data-page="/CustomerReceivesFirstBill/NotSureOf_MyAccount" class="page-menuBtn btn" style="padding: 20px 40px;">My Account</a>
+                            <a href="#" data-page="/CustomerReceivesFirstBill/NotSureOf_TelstraApps" class="page-menuBtn btn" >Telstra 24x7 App for iPhone,<br />Android, Facebook or iPad</a>
+                        </figcaption>
+                    </div><div class="coll-right">
+                              <figure><img alt="" src="/Content/img/3.5 There's one thing/img_title_pic_s.jpg"></figure>
+                          </div>
+                      
+                   
+                
+                </div>
+            </div> @*end item here*@
+    
+       
+        </div>
+    </div>
+</div>
+
+<div id="page-footer">
+    <a href="#" data-page="/CustomerReceivesFirstBill">Customer Receives First Bill</a>
+    <span class="current">@ViewBag.Title</span>
+</div>
+
+
+

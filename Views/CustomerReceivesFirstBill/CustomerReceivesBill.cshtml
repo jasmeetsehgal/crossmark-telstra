@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Customer Receives Bill";
+}
+<div class="sub-page  AlignH ">
+     <style>
+        .sub-page figcaption {
+            height: 640px;
+        }
+        .pink .page-content h2 {
+            color: #ED3B95;
+            margin: 10px 0;
+        }
+        .pink .page-content h2.p10{
+            padding-left:10px;
+        }
+        .pink .sub-page .page-content .content_scrollable_wrap {
+            padding: 10px 100px 0;
+        }
+    </style>
+    <a class="scrollable-browse scrollable-next"></a><a class="scrollable-browse scrollable-prev">
+                                                     </a>
+    <div class="title">
+        <h1>@ViewBag.Title</h1>
+    </div>
+    <div id="scrollable" class="scrollable">
+        <div class="items">
+            <div class="page-content">
+                <div class="content_scrollable_wrap" style="padding:50px 100px 0;">
+                    <div>
+                        <p>
+                            There are several critical moments that determine whether customers become Telstra
+                            advocates &nbsp;&nbsp;<img src="../../Content/img/face_happy.png" /> &nbsp; &nbsp;<br />or detractors. &nbsp;&nbsp;<img src="../../Content/img/face_sad.png" />&nbsp;</p>
+                        <p><br/>
+                            One of those is when customers receive their first bill from Telstra.</p>
+                        <p><br/>
+                            All new Telstra customers are “born digital”. This means they receive a digital
+                            welcome, are signed up to digital bill and are encouraged to make bill payments
+                            digitally.</p>
+                        <p><br/>
+                            Take the digital bill virtual tours to find out more…</p>
+                        <a href="#" data-page="/CustomerReceivesFirstBill/CustomerReceivesBill_EmailBill" class="page-menuBtn btn" style="margin-left: 360px;font-size: 2.0em;">Email Bill</a> 
+                        <a href="#"  data-page="/CustomerReceivesFirstBill/CustomerReceivesBill_OnlineBill" class="page-menuBtn btn" style="margin-left: 40px;font-size: 2.0em;">Online Bill</a>
+                        
+                    </div>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+</div>
+    <div id="page-footer">
+        <a href="#" data-page="/CustomerReceivesFirstBill">Customer Receives First Bill</a>
+        <span class="current">@ViewBag.Title</span>
+    </div>

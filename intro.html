@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<html manifest="telstra.manifest">-->
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Index</title>
+    <link href="/Content/css/animation.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=1920">
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-34505015-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="container">
+            <div id="bkg"></div>
+            <div id="Animation">
+                <div id="logo">
+                    <img src="/Content/img/logo_anim.png" />
+                    <h1 id="start-journey">START THE JOURNEY HERE...</h1>
+                </div>
+                <img id="touch-me" src="/Content/img/icon_touchme.png" />
+                <a href="#" id="about-us" data-i="0">ABOUT US</a>
+                <div id="home-menu">
+                    <div class="menu-1" data-i="3">
+                        <img src="/Content/img/menu_potentialcustomers.png" alt="" /></div>
+                    <div class="menu-2" data-i="6">
+                        <img src="/Content/img/menu_newcustomers.png" alt="" /></div>
+                    <div class="menu-3" data-i="9">
+                        <img src="/Content/img/menu_customerfirstbill.png" alt="" /></div>
+                    <div class="menu-4" data-i="12">
+                        <img src="/Content/img/menu_digitalcustomer.png" alt="" /></div>
+                    <!--<div class="menu-5">Digital Customer<br/>Life Moments</div>-->
+                </div>
+            </div>
+
+            <!--  <div id="AnimationRandom">
+	            
+
+                  </div>-->
+
+        </div>
+        <iframe src="" width="1920" height="1080" frameborder="0" scrolling="no" id="pages-frame"></iframe>
+    </div>
+
+    <audio style="display: none;" id="animSound">
+        <source src="/Content/sound/TelstraRC_Sting_Nov2.mp3" type="audio/mpeg" />
+    </audio>
+    <audio style="display: none;" id="mainSound" loop="loop">
+        <source src="/Content/sound/MainLoop.mp3" type="audio/mpeg" />
+    </audio>
+     <audio id="clickSound" style="display: none;">
+          <source src="/Content/sound/click.mp3" type="audio/mpeg" />
+    </audio> 
+    <script src="/Content/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/Content/js/raphael-min.js" type="text/javascript"></script>
+
+    <script>        $(function () {
+
+            $("#AnimationRandom").click(function () {
+                var paperRandom = new Raphael(document.getElementById('AnimationRandom'), (1920 + 750), (1080 + 500));
+
+
+                //                var _stAngle = 90;
+                //                var total_ht = 90;
+                //                var cx = 1920 + 250;
+                //                var cy = 1580;
+
+                //                var _stAngle = 0;
+                //                var total_ht = 90;
+                //                var cx = 250;
+                //                var cy = 1580;
+
+                //                var _stAngle = 180;
+                //                var total_ht = 90;
+                //                var cx = 1920 + 250;
+                //                var cy = 500; 
+
+                var _stAngle = 360;
+                var total_ht = -90;
+                var cx = 250;
+                var cy = 500;
+
+
+                var spectrum_creation_speed = 300;
+                var ren_path = paperRandom.set();
+                var path_arr = [];
+
+                //var paper_set = paperRandom.set();
+
+                for (var i = 0; i < 9; i++) {
+                    ht = ht_arr[i] * total_ht / 100;
+                    if (i > 0) {
+                        _stAngle += (ht_arr[i - 1] * total_ht / 100);
+                    }
+
+                    var nex_path = sector(cx, cy, (_stAngle), (_stAngle));
+                    ren_path.push(paperRandom.path(nex_path));
+                    ren_path[i].attr({
+                        'fill': coll_arr[i],
+                        'stroke-width': 0,
+                        'stroke': coll_arr[8]
+                    });
+                    var path = sector(cx, cy, (_stAngle), (_stAngle + ht));
+                    console.log(_stAngle, (_stAngle + ht));
+                    path_arr.push(path);
+                    var anim = Raphael.animation({ 'path': path }, spectrum_creation_speed, 'linear');
+                    if (i == 8) {
+                        anim = Raphael.animation({ 'path': path }, spectrum_creation_speed, 'linear');
+                    }
+                    ren_path[i].animate(anim.delay(spectrum_creation_speed * i));
+                    //ren_path[i].transform("r45,"+cx+","+ cy);
+                }
+                //ren_path.transform("t600,600r45," + cx+600 + "," + cy+600);
+            });
+
+        });
+    </script>
+
+    <script src="/Content/js/animation.js" type="text/javascript"></script>
+
+</body>
+</html>

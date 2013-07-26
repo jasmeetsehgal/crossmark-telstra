@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Digital Bill";
+}
+
+<div class="sub-page  AlignH ">
+      <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+   
+    <div id="scrollable" class="scrollable" >
+        <div class="items">          
+
+             <div class="page-content">
+                 <div class="top-slider"><p>Switch customers to a Digital bill on every call</p></div>
+                  <div class="bottom-findmore">
+                    <ul>
+                        <li><a href="#" data-page="/NewTelstraCustomer/onBoard_MyAccountVirtualTour" data-pageIndex="0">My Account Virtual Tour</a></li>
+                        <li><a href="#" data-page="/NewTelstraCustomer/onBoard_BillingandPayments" data-pageIndex="2">Request Email Bill</a></li>
+                        <li><a href="#" data-page="/CustomerReceivesFirstBill/CustomerReceivesBill" data-pageIndex="0">Customer Receives Bill</a></li>
+                    </ul>
+                </div>
+                  <div class="content_scrollable_wrap">
+                   
+                    <!--<div class="coll-left">-->
+                        <figcaption>
+                            <div >
+                                <p>A digital bill is the easy way for customers to receive their bills.
+</p><br />
+<p>There are two options of Digital Bill available to customers:
+</p>
+                                <br />
+                                <ul><li>“Email Bill” – Customer receives an emailed pdf attachment of their bill in their inbox (in their nominated email address)</li>
+                                    <li>“Online Bill” – Customer receives email advising their bill is available for download via My Account.</li></ul>
+                                <br />
+                                <p>Customers can switch to either form of digital bill via My Account, in the Billing and Payments tab (registration or log-in required).
+</p>
+                                <br />
+                                <p>Customers can have the convenience of receiving their bills or bill notifications in their inbox – this gives them the freedom to view and pay their Telstra bills <strong>ANYWHERE, ANYTIME – ON THE GO</strong>.</p>
+                                <br />
+                                <a href="#" data-page="/NewTelstraCustomer/DigitalBill_EmailBill" class="page-menuBtn btn">Sign up for Email Bill </a>
+                                 <a href="#" data-page="/NewTelstraCustomer/DigitalBill_OnlineBill" class="page-menuBtn btn">Sign up for Online Bill </a>
+                            </div>
+                        </figcaption>
+                     <!--</div>
+                     <div class="coll-right">
+                         <figure>
+                <img src="/Content/img/Section%202.1%20you%20are%20signed%20up/2.1.1.1.1_digital%20welcome.png" />
+                         </figure>
+                     </div>-->
+                   
+                </div>
+            
+            </div> @*end item here*@
+
+              
+      </div>
+    </div>
+</div>
+<div id="page-footer">
+     <a href="#" data-page="/NewTelstraCustomer">New Telstra Customer</a>
+    <a href="#" data-page="/NewTelstraCustomer/DigitalWelcome" data-pageIndex="3">You Are Signed Up</a>
+      <span class="current">@ViewBag.Title</span>
+</div>

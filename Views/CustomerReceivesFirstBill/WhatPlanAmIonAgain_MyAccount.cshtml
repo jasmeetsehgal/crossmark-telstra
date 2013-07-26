@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "What Plan Am I on Again?";
+}
+
+
+<div class="sub-page  AlignH ">
+    <style>
+        /*.sub-page figcaption {
+            height: 640px;
+        }*/
+        .pink .page-content h2 {
+            color: #ED3B95;
+            margin: 10px 0;
+        }
+        .pink .page-content h2.p10{
+            padding-left:10px;
+        }
+        .pink .sub-page .page-content .content_scrollable_wrap {
+            padding: 10px 100px 0;
+        }
+        .pink .sub-page figcaption {
+            height: 600px;
+        }
+    </style>
+    <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+    <div id="scrollable" class="scrollable" >
+        <div class="items">
+           
+    
+            <div class="page-content">
+                <div class="bottom-findmore">
+                    <ul><li><a href="#" data-page="/NewTelstraCustomer/onBoard_MyAccountVirtualTour" data-pageIndex="0">My Account Virtual Tour</a></li></ul>
+                </div>
+                <div class="scrollable_wrap">
+                  
+                    <div class="coll-left">
+                        <h2>My Account</h2>
+                        <div class="img_title"></div>
+                        <figcaption>
+                            <div>
+                                <p>Kato can log in to My Account and check what plan he is on in just a few clicks.</p>
+                                <p><br />Once logged in to My Account, Kato can see each of his Telstra service plans displayed on the overview page.</p>
+                                <p><br />To get detailed information about his mobile, home phone or internet plan, Kato needs to click on “Billing and Payments” and under “Bill Detail” he can view the details of his plan by selecting the drop down menu options.</p>
+                            </div>
+                        </figcaption>
+                    </div><div class="coll-right">
+                              <figure>
+                              <div class="imgscrollable" id="smallScrolable-1">
+                                 <div id="small-nav-1"></div>
+                                    <div class="items">
+                                         <img src="/Content/img/3.4 What Plan/3.4.1-My-Account_image1_s.jpg" />
+                                         <img src="/Content/img/3.4 What Plan/3.4.1-My-Account_image2_s.jpg" />
+                                         <img src="/Content/img/3.4 What Plan/3.4.1-My-Account_image3_s.jpg" />
+                                    </div>
+                                 </div>
+                              </figure>
+                          </div>
+                   
+             
+                </div>
+            </div> @*end item here*@   
+    
+        </div>
+    </div>
+</div>
+
+<div id="page-footer">
+    <a href="#" data-page="/CustomerReceivesFirstBill">Customer Receives First Bill</a>
+      <a href="#" data-page="/CustomerReceivesFirstBill/WhatPlanAmIonAgain">What Plan Am I on Again?</a>
+    <span class="current">My Account</span>
+</div>
+
+

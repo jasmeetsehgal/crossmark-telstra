@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Sign Up For Online Bill";
+}
+
+<div class="sub-page  AlignH ">
+      <a class="scrollable-browse scrollable-next"></a> <a class="scrollable-browse scrollable-prev"></a>
+    <div  class="title"><h1>@ViewBag.Title</h1></div>
+   
+    <div id="scrollable" class="scrollable" >
+        <div class="items">          
+
+             <div class="page-content">
+                 <div class="top-slider"><p>Have the digital bill conversation on all calls</p></div>
+                  <div class="bottom-findmore">
+                    <ul>
+                         <li><a href="#" data-page="/NewTelstraCustomer/onBoard_MyAccountVirtualTour" data-pageIndex="0">My Account Virtual Tour</a></li>
+                  <li><a href="#" data-page="/CustomerReceivesFirstBill/CustomerReceivesBill" data-pageIndex="0">Customer Receives Bill</a></li>
+                         <li><a href="#"  data-path="/Content/videos/tdtv-ep3.mp4" data-type="video">Online Bill vs Email Bill</a></li>
+                    </ul>
+                </div>
+                  <div class="content_scrollable_wrap">
+                   
+                   
+                        <figcaption>
+                            <div >
+                                <p>Customers switch to Online Bill via My Account, in the Billing and Payments tab (registration or log-in required).</p>
+                                <br /><br />
+                                <img src="../../Content/img/online-bill-callout_images.png" style="padding-left:200px;" />
+                               
+                            </div>
+                        </figcaption>
+                   
+                   
+                </div>
+            
+            </div> @*end item here*@
+
+              
+      </div>
+    </div>
+</div>
+<div id="page-footer">
+     <a href="#" data-page="/NewTelstraCustomer">New Telstra Customer</a>
+    <a href="#" data-page="/NewTelstraCustomer/DigitalWelcome">You Are Signed Up</a>
+     <a href="#" data-page="/NewTelstraCustomer/DigitalBill">Digital Bill</a>
+      <span class="current">@ViewBag.Title</span>
+</div>

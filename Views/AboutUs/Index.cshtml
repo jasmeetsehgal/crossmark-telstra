@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+
+<div class="AlignH cf">
+<div class="sub-page">
+    <a class="scrollable-browse scrollable-next"></a>
+    <a class="scrollable-browse scrollable-prev"></a>
+    <div class="title">
+        <h1>@ViewBag.Title</h1>
+    </div>
+    <div>
+        <div class="items">
+            <div class="page-content">
+                
+                <div class="scrollable_wrap"><img src="/Content/img/aboutus/cretingdigital_img.jpg" class="creatingdigital_img" />
+                    <h1>ABOUT TELSTRA DIGITAL</h1>
+                    <div class="video-container">
+                        <video id="videoplayer" autoplay class="about-videos"  controls="controls">
+                            <source src="/Content/videos/About%20TD.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            @*end item here*@
+        </div>
+    </div>
+</div>
+
+<div class="video-thumbs AlignV">
+    <script type="text/javascript">
+        window.parent.mainSoundPause(true);
+</script>
+   <a href="/Content/videos/About%20TD.mp4" data-title="About Telstra Digital" class="btn active">
+       <img src="/Content/img/aboutus/aboutTD.jpg" /><br/>
+       About Telstra Digital 
+    </a>
+    <a href="/Content/videos/tdtv-ep1.mp4"  data-title="TDTV Episode 1" class="btn">
+        <img src="/Content/img/aboutus/ep1.jpg" /><br/>
+      TDTV Episode 1
+    </a>
+    <a href="/Content/videos/tdtv-ep2.mp4"  data-title="TDTV Episode 2" class="btn">
+      <img src="/Content/img/aboutus/ep2-1.jpg" /><br/>
+       TDTV Episode 2
+    </a>
+    <a href="/Content/videos/tdtv-ep3.mp4"  data-title="TDTV Episode 3" class="btn">
+    <img src="/Content/img/aboutus/ep3.jpg" /><br/>
+       TDTV Episode 3
+    </a>
+    <a href="/Content/videos/tdtv-ep4.mp4" data-title="TDTV Episode 4"  class="btn">
+       <img src="/Content/img/aboutus/ep4.jpg" /><br/>
+        TDTV Episode 4
+    </a>
+    <a href="/Content/videos/tdtv-ep5.mp4"  data-title="TDTV Episode 5" class="btn">
+   <img src="/Content/img/aboutus/ep5.jpg" /><br/>
+      TDTV Episode 5
+    </a>
+    <a href="/Content/videos/tdtv-ep6.mp4"  data-title="TDTV Episode 6" class="btn">
+      <img src="/Content/img/aboutus/ep6.jpg" /><br/>
+      TDTV Episode 6
+    </a>
+
+</div>
+    </div>
+<div id="page-footer">
+    <span class="current">@ViewBag.Title</span>
+</div>
